@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{epsfig}
+\usepackage{times}
+\usepackage{fancyhdr}
+\usepackage{pslatex}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}%renewcommand{\topfraction}{1.0}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+\setlength {\textwidth}{6.6in}
+\hoffset=-1.0in
+\oddsidemargin=1.00in
+\marginparsep=0.0in
+\marginparwidth=0.0in                                                                               
+\setlength {\textheight}{9.0in}
+\voffset=-1.00in
+\topmargin=1.0in
+\headheight=0.0in
+\headsep=0.00in
+\footskip=0.50in                                         
+\setcounter{page}{1}
+\begin{document}
+\def\pos{\medskip\quad}
+\def\subpos{\smallskip \qquad}
+\newfont{\nice}{cmr12 scaled 1250}
+\newfont{\name}{cmr12 scaled 1080}
+\newfont{\swell}{cmbx12 scaled 800}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+\textbf{PHYS 20323/60323:} \textbf{Fall 2024, PROJECT REPORT}
+}\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\large CITLALI ALCALA \\[0.25in]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{center}
+\vspace{1cm}
+\noindent \textbf{Project Description:}\\
+The objective of this project is to model the decay of a set of radioactive isotopes, calculate their resulting energy release, and analyze the shielding requirements to block harmful radiation. The project involves the following steps:
+
+\vspace{.5cm}
+\noindent {\bf 1:}  I wrote a program was written to simulate the decay of 20,000 atoms of the given radioactive isotopes over their time in minutes, ensuring that all atoms decay to their final state. The program in python tracks the number of atoms in each isotope over time and generates a plot to visualize the decay process. 
+
+\vspace{.5cm}
+\noindent {\bf 2:}  The program was then extended to calculate the number of decay and the energy released for each of the four types of decay processes, which were (alpha decay, beta decay, gamma radiation, and Z decay). Energy values are assigned based on what was provided to me in the project instructions. 
+
+\vspace{.5cm}
+\noindent {\bf 3:}  The project included an analysis of the total energy released and the individual energies from each decay process across multiple runs of the simulation. For each run, the average energy and the standard deviation were calculated to account for any variability in the energy output. A minimum of 10 runs were used to ensure reliable statistical results.
+
+\vspace{.5cm}
+\noindent {\bf 4:}   Given that alpha particle decay is particularly harmful to humans, the project asked for a calculation to determine the thickness of a shield required to block all alpha particle energy. And this shield thickness is calculated based on the fact that 1 cm of material blocks 3,000 MeV of energy. To obtain this calculation, I used the average energy, along with the standard deviation from the previous steps to to estimate the necessary thickness of the shielding material.
+\vspace{.5cm}
+In this project, I combined the principles of nuclear physics, data analysis, and computational modeling in the language of Python to understand the process of radioactive decay.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1cm} 
+\noindent {\bf PROCEDURE:}\\
+The procedure for this project involves several key steps. First, I developed a python code program that worked to developed to simulate the decay of 20,000 atoms of radioactive isotopes over a sufficiently long time, ensuring all given atoms reach their stable final state. The program tracks and plots the number of atoms remaining for each isotope in the decay chain at various time intervals. Next, the program calculates the number of decay events and the energy released for each of the four decay types (alpha, beta, gamma, and Z decay) based on given MeV for each. Afterward, the program runs multiple simulations (at least 10) to calculate the average and standard deviation of the total energy and individual decay energies generated across all runs. Finally, based on the calculated energy values and assuming a shielding material blocks 3,000 MeV per centimeter, the required thickness of a shield is determined to protect against harmful alpha radiation, considering a 3-sigma range around the average energy. This procedure combines computational modeling in Python, data analysis, and practical applications in radiation shielding.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1cm} 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{Unknown.png}
+    \caption{This was the plot that resulted as the completion      of the first step, the Decay process and energy release     over time.}
+    \label{fig:decay_process}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent {\bf RESULTS:}\\ 
+
+The results of the simulation according to the procedure focuses on the total energy and the decay process in each isotope provided.
+The simulation was run for 80,000 time steps, starting with 20,000 radon atoms. And The following isotopes were tracked during the decay process:
+\begin{itemize}
+    \item Radon-222 (\text{Rn\_atoms})
+    \item Polonium-218 (\text{Po\_atoms})
+    \item Lead-214 (\text{Pb\_214\_atoms})
+    \item Bismuth-214 (\text{Bi\_atoms})
+    \item Thallium-210 (\text{Tl\_atoms})
+    \item Lead-207 (\text{Pb\_207\_atoms})
+\end{itemize}
+
+The decay of each isotope followed a random or 50/50 chance process, with decay rates determined by the half-lives of each isotope, as shown in the code. For each time step, a random number of decays was computed for each isotope, and the decayed atoms were transferred to the next isotope in the decay chain.
+
+
+Moving on, As expected from the decay process, the number of Rn atoms decreased over time, while the number of Po atoms, Pb 214 atoms, Bi atoms, Tl atoms, and Pb 207 atoms increased. This behavior is consistent with the sequential decay of Radon-222 through the entire process until it reached the stable lead-207 isotope. The number of atoms in each intermediate isotope gradually increased until equilibrium was reached, after which the decay rates remained constant.
+
+\vspace{1cm}
+\textbf{Data Representation:}\\
+
+The following graph shows the number of atoms for each isotope over the 80,000 time steps:
+
+\begin{itemize}
+    \item \text{Rn\_atoms} started at 20,000 and steadily decreased as Radon decayed to Polonium.
+    \item \text{Po\_atoms} increased from 0 and followed a similar pattern, eventually reaching a stable number as it decayed to Lead-214.
+    \item The other isotopes (\text{Pb\_214\_atoms}, \text{Bi\_atoms}, \text{Tl\_atoms}, and \text{Pb\_207\_atoms}) followed similar patterns, with their numbers rising and leveling off as the isotopes in the decay chain reached equilibrium.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.79\linewidth]{Unknown-2.png}
+    \label{fig:decay_curve}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2cm}
+\noindent {\bf Energy Shielding Calculation:}\\
+
+In addition to tracking the isotopic decay, the energy associated with alpha was said to have a dangerous radiation and so its energy emitted during the decay process was calculated. The average energy of alpha particles was found to be approximately 120,130.37 MeV, with a standard deviation of 737.48 MeV. The total energy to block, including 3 standard deviations for safety, was calculated to be approximately 121,642.01 MeV. Given the energy per cm required to block the radiation, which was given to us as (3,000 MeV/cm), the required shield thickness was found to be approximately 40.78 cm to effectively block the radiation emitted by these particles. Due to the fact that 121,642.01 / 3,000 = approx, 40. cm
+This result demonstrates the importance of shielding from radioactive decay. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\vspace{1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent {\bf CONCLUSION:}\\
+This project allowed us to view the process of radioactive decay amongst isotopes as well as the calculation of radiation shielding required to protect against harmful radiation. Using Python, I modeled the decay of a set of radioactive isotopes, tracking the number of atoms of each isotope over time. The results confirmed the expected sequential decay of Radon-222 through the decay chain, with each isotope reaching equilibrium after a series of decays and after a series of time steps.
+\vspace{.1cm}
+
+\noindent{So, through the simulation, I analyzed the total energy released during the decay processes, including alpha radiation. The calculation of the average energy and standard deviation allowed us to estimate the energy required to block alpha radiation effectively. Based on the provided shielding material data- 3,000 MeV per cm- , we determined that a shield thickness of approximately 40.78 cm is needed to block the radiation emitted by these particles.}
+\vspace{.5cm}
+
+\noindent{The findings from this project not only highlight the complexity of radioactive decay but also underscore the critical importance of properly dealing with radioactivity.}
+\vspace{.5cm}
+
+\noindent{In conclusion, this project helped me successfully combine computational modeling, data analysis and offered a deeper understanding of  decay processes.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
